@@ -86,7 +86,7 @@ export default function SelectMenu<T extends FieldValues>({
       <Controller
         name={id}
         control={control}
-        render={({ field }) => (
+        render={() => (
           <Select
             name={id}
             isClearable

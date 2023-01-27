@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import PageTitle from '@/components/Header/PageTitle';
+import StandardLayout from '@/components/Layout/StandardLayout';
 import { useEffect } from 'react';
-import useFindSeedsStore from '../store/FindSeedsStore';
+import useFindSeedsStore from '../store/findSeedsStore';
 
 export const ViewSeeds = () => {
   const seeds = useFindSeedsStore((state) => state.seeds);
@@ -13,8 +15,8 @@ export const ViewSeeds = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Seeds</h1>
+    <StandardLayout>
+      <PageTitle title="Mein Saatgut" />
       <ul>
         {seeds.map((seed) => (
           <li key={seed.id}>{seed.name}</li>
@@ -28,6 +30,6 @@ export const ViewSeeds = () => {
           Neuer Eintrag
         </Link>
       </div>
-    </div>
+    </StandardLayout>
   );
 };

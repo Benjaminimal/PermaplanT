@@ -1,8 +1,9 @@
 import CreateSeedForm from '../components/CreateSeedForm';
 import { NewSeedDTO } from '@/bindings/definitions';
 import PageTitle from '@/components/Header/PageTitle';
-import SimpleModal from '@/components/Modals/SimpleModal';
-import useCreateSeedStore from '../store/CreateSeedStore';
+import SimpleModal from '@/components/Modal/SimpleModal';
+import StandardLayout from '../../../components/Layout/StandardLayout';
+import useCreateSeedStore from '../store/createSeedStore';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -27,7 +28,7 @@ export function CreateSeed() {
   };
 
   return (
-    <div className="mx-auto w-full p-4 md:w-[900px]">
+    <StandardLayout>
       <PageTitle title="Neuer Eintrag" />
       <CreateSeedForm onCancel={onCancel} onSubmit={onSubmit} />
       <SimpleModal
@@ -46,7 +47,7 @@ export function CreateSeed() {
       />
       <SimpleModal
         title="Fehler"
-        body={`Ein Fehler ist aufgetreten: ${error}`}
+        body={`Ein Fehler ist aufgetreten: ${error?.message}`}
         show={showErrorModal}
         setShow={setShowErrorModal}
         submitBtnTitle="Ok"
@@ -54,6 +55,6 @@ export function CreateSeed() {
           setShowErrorModal(false);
         }}
       ></SimpleModal>
-    </div>
+    </StandardLayout>
   );
 }

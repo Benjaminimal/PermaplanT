@@ -4,7 +4,7 @@ import { create } from 'zustand';
 import { createSeed } from '../api/createSeed';
 import { findAllVarieties } from '../api/findAllVarieties';
 
-interface CreateSeedState {
+interface CreateSeedStore {
   isUploadingSeed: boolean;
   isFetchingVarieties: boolean;
   varieties: VarietyDTO[];
@@ -15,7 +15,7 @@ interface CreateSeedState {
   createSeed: (seed: NewSeedDTO) => Promise<void>;
 }
 
-const useCreateSeedStore = create<CreateSeedState>((set) => ({
+const useCreateSeedStore = create<CreateSeedStore>((set) => ({
   isUploadingSeed: false,
   isFetchingVarieties: false,
   varieties: [],

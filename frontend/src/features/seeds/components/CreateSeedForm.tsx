@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import SimpleFormInput from '@/components/Form/SimpleFormInput';
 import { enumToSelectOptionArr } from '@/utils/enum';
-import useCreateSeedStore from '../store/CreateSeedStore';
+import useCreateSeedStore from '../store/createSeedStore';
 import { useEffect } from 'react';
 
 interface CreateSeedFormProps {

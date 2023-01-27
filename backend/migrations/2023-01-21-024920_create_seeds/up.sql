@@ -14,7 +14,9 @@ CREATE TABLE seeds (
   quality Quality, -- German: Qualität
   price SMALLINT, -- in cents, German: Preis
   generation SMALLINT, -- German: Generation
-  notes TEXT -- German: Notizen,
+  notes TEXT, -- German: Notizen,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 -- This is only temporary so we can get some rows into the database

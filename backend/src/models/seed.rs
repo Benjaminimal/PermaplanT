@@ -2,7 +2,7 @@ use crate::{
     config::db::Connection,
     schema::seeds::{self, all_columns},
 };
-use chrono::NaiveDate;
+use chrono::{DateTime, NaiveDate, Utc};
 use diesel::prelude::*;
 
 use super::{
@@ -27,9 +27,11 @@ pub struct Seed {
     pub price: Option<i16>,
     pub generation: Option<i16>,
     pub notes: Option<String>,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
 }
 
-#[derive(Insertable)]
+#[derive(Insertable, AsChangeset)]
 #[diesel(table_name = seeds)]
 pub struct NewSeed {
     pub tags: Vec<Option<Tag>>,

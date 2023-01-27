@@ -1,4 +1,4 @@
-use chrono::NaiveDate;
+use chrono::{DateTime, NaiveDate, Utc};
 use serde::{Deserialize, Serialize};
 use typeshare::typeshare;
 
@@ -24,6 +24,8 @@ pub struct SeedDTO {
     pub quality: Option<Quality>,
     pub price: Option<i16>,
     pub notes: Option<String>,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
 }
 
 impl From<Seed> for SeedDTO {
@@ -43,6 +45,8 @@ impl From<Seed> for SeedDTO {
             quality: seed.quality,
             price: seed.price,
             notes: seed.notes,
+            created_at: seed.created_at,
+            updated_at: seed.updated_at,
         }
     }
 }

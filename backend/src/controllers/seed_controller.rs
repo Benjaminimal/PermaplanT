@@ -10,6 +10,13 @@ use crate::{
     services,
 };
 
+pub async fn find_by_id(id: Path<i32>, pool: Data<Pool>) -> Result<HttpResponse> {
+    match services::seed_service::find_by_id(*id, &pool) {
+        Ok(seed) => Ok(HttpResponse::Ok().json(ResponseBody::new(constants::MESSAGE_OK, seed))),
+        Err(err) => Ok(err.response()),
+    }
+}
+
 pub async fn find_all(pool: Data<Pool>) -> Result<HttpResponse> {
     match services::seed_service::find_all(&pool) {
         Ok(seeds) => Ok(HttpResponse::Ok().json(ResponseBody::new(constants::MESSAGE_OK, seeds))),
@@ -26,8 +33,8 @@ pub async fn create(new_seed_json: Json<NewSeedDTO>, pool: Data<Pool>) -> Result
     }
 }
 
-pub async fn delete_by_id(path: Path<i32>, pool: Data<Pool>) -> Result<HttpResponse> {
-    match services::seed_service::delete_by_id(*path, &pool) {
+pub async fn delete_by_id(id: Path<i32>, pool: Data<Pool>) -> Result<HttpResponse> {
+    match services::seed_service::delete_by_id(*id, &pool) {
         Ok(_) => {
             Ok(HttpResponse::Ok().json(ResponseBody::new(constants::MESSAGE_OK, constants::EMPTY)))
         }

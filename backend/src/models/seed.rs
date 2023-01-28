@@ -50,6 +50,11 @@ pub struct NewSeed {
 }
 
 impl Seed {
+    pub fn find_by_id(id: i32, conn: &mut Connection) -> QueryResult<SeedDTO> {
+        let query_result = seeds::table.find(id).first::<Seed>(conn);
+        return query_result.map(|v| v.into());
+    }
+
     pub fn find_all(conn: &mut Connection) -> QueryResult<Vec<SeedDTO>> {
         let query_result = seeds::table.select(all_columns).load::<Seed>(conn);
         return query_result.map(|v| v.into_iter().map(|v| v.into()).collect());

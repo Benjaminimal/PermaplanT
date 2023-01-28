@@ -12,6 +12,10 @@ pub fn config(cfg: &mut web::ServiceConfig) {
                         "/{id}",
                         web::delete().to(controllers::seed_controller::delete_by_id),
                     )
+                    .route(
+                        "/{id}",
+                        web::get().to(controllers::seed_controller::find_by_id),
+                    )
                     .route("", web::get().to(controllers::seed_controller::find_all)),
             )
             .service(

@@ -38,15 +38,13 @@ export const ViewSeeds = () => {
   };
 
   return (
-    <StandardLayout>
+    <StandardLayout styleNames="flex flex-col space-y-4">
       <PageTitle title="Mein Saatgut" />
-      <div className="mt-4 flex flex-row justify-between space-x-6">
+      <div className="flex flex-row justify-between space-x-6">
         <SearchInput handleSearch={handleSearch} />
         <SimpleButton title="Neuer Eintrag" onClick={handleCreateSeedClick} />
       </div>
-      <div className="mt-4">
-        <SeedsOverviewList seeds={filteredSeeds} />
-      </div>
+      <SeedsOverviewList seeds={filteredSeeds} />
     </StandardLayout>
   );
 };

@@ -9,6 +9,17 @@ use crate::{
     },
 };
 
+pub fn find_by_id(id: i32, pool: &Data<Pool>) -> Result<SeedDTO, ServiceError> {
+    let mut conn = pool.get().expect("Failed to retrieve pool.");
+    match Seed::find_by_id(id, &mut conn) {
+        Ok(seed) => Ok(seed),
+        Err(msg) => Err(ServiceError::new(
+            StatusCode::INTERNAL_SERVER_ERROR,
+            msg.to_string(),
+        )),
+    }
+}
+
 pub fn find_all(pool: &Data<Pool>) -> Result<Vec<SeedDTO>, ServiceError> {
     let mut conn = pool.get().expect("Failed to retrieve pool.");
     match Seed::find_all(&mut conn) {

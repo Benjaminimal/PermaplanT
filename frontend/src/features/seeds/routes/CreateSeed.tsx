@@ -3,7 +3,7 @@ import { NewSeedDTO } from '@/bindings/definitions';
 import PageTitle from '@/components/Header/PageTitle';
 import SimpleModal from '@/components/Modal/SimpleModal';
 import StandardLayout from '../../../components/Layout/StandardLayout';
-import useCreateSeedStore from '../store/createSeedStore';
+import useCreateSeedStore from '../store/CreateSeedStore';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 

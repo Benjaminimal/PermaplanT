@@ -1,8 +1,8 @@
-# Use Case: Calender
+# Use Case: Calendar
 
 ## Summary
 
-- **Scope:** Calender
+- **Scope:** Calendar
 - **Level:** User Goal
 - **Actors:** App User
 - **Brief:** The user sees which of the planned plants are to be planted next. ("Saisonübersicht")
@@ -24,4 +24,5 @@
     If not confirmed, the bar stays unmodified.
 - **Error scenario:**
 - **Postcondition:**
+  - Calendar is synchronized to Nextcloud
 - **Non-functional Constraints:**

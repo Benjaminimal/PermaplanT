@@ -39,7 +39,7 @@ export function CreateSeed() {
   }
 
   return (
-    <div className="mx-auto w-full p-4 md:w-[900px]">
+    <div className="w-full px-20 p-8 bg-neutral-800 text-white">
       <PageTitle title="Neuer Eintrag" />
       <CreateSeedForm onCancel={onCancel} onChange={onChange} onSubmit={onSubmit} />
       <SimpleModal
